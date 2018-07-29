@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
+  loginQrCode = 'LoginQrForfilemaker';
 
   constructor(
       private formBuilder: FormBuilder,
@@ -21,7 +22,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
       this.loginForm = this.formBuilder.group({
-          username: ['', Validators.required],
+          firstName: ['', Validators.required],
+          lastName: ['', Validators.required],
+          userName: ['', Validators.required],
+          email: ['', Validators.required,Validators.email],
           password: ['', Validators.required]
       });
 
@@ -40,8 +44,11 @@ export class LoginComponent implements OnInit {
       // stop here if form is invalid
       if (this.loginForm.invalid) {
           return;
+      }else{
+            this.router.navigateByUrl('/profile');
+
       }
-      this.router.navigateByUrl('/profile');
+      console.log(this.loginForm.value);
       this.loading = true;
   }
 

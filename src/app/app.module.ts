@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ProfileComponent } from './profile/profile.component';
+import { QRCodeModule } from 'angularx-qrcode';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { ProfileComponent } from './profile/profile.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    QRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
